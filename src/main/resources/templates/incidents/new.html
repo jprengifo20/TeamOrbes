@@ -1,0 +1,63 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/head"></th:block>
+<body>
+
+	<th:block th:include="fragments/navbar"></th:block>
+	<div class="container">
+
+		<div class="card" style="max-width: 100%;">
+			<div class="card-header">Registrar Incidencia</div>
+			<div class="card-body">
+
+				<form th:object="${incident}" th:action="@{/incidents/save}"
+					th:method="post">
+					<div class="form-group">
+						<input type="hidden" class="form-control" th:field="*{id}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="category">Proveedor</label> <select id="category"
+							class="form-control" th:field="*{categories}" multiple="multiple">
+							<option th:each="category : ${categories}"
+								th:text="${category.name}" th:value="${category.id}"></option>
+						</select>
+					</div>
+					
+					
+					
+					<div class="form-group">
+						<label for="date">Fecha</label> <input type="text"
+							class="form-control" id="date" th:field="*{date}" />
+					</div>
+					
+					
+					<div class="form-group">
+						<label for="gravity">Gravedad</label> 
+						<select id="gravity" name="gravity">
+					<option value="leve">LEVE</option>
+					<option value="medio">MEDIO</option>
+					<option value="grave">GRAVE</option>
+				    <option value="muyGrave">MUY GRAVE</option>
+					</select>
+					</div>
+
+
+					<div class="form-group">
+						<label for="observations">Observaciones</label>
+						<textarea rows="4" type="textarea" class="form-control"
+							id="observations" th:field="*{observations}"
+							playeholder="type here ..." /></textarea>
+					</div>
+
+					<a th:href="@{/incidents/}" class="btn btn-primary">Regresar</a>
+					<button type="submit" class="btn btn-success">Save</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<th:block th:include="fragments/scripts"></th:block>
+
+</body>
+</html>
