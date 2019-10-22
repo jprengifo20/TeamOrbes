@@ -45,12 +45,12 @@ public class Incident {
 		this.gravity = gravity;
 	}
 
-	public List<Category> getCategories() {
-		return categories;
+	public List<Supplier> getSuppliers() {
+		return suppliers;
 	}
 
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
+	public void setSuppliers(List<Supplier> suppliers) {
+		this.suppliers = suppliers;
 	}
 
 	public Date getDate() {
@@ -74,11 +74,11 @@ public class Incident {
 
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "incident_category", 
+	@JoinTable(name = "incident_supplier", 
 				joinColumns = { @JoinColumn(name = "incident_id") }, 
-				inverseJoinColumns = {@JoinColumn(name = "category_id") 
+				inverseJoinColumns = {@JoinColumn(name = "supplier_id") 
 			})
-	private List<Category> categories = new ArrayList<>();
+	private List<Supplier> suppliers = new ArrayList<>();
 
 	@Column(name = "date")
 	@DateTimeFormat(pattern = "yyyy")

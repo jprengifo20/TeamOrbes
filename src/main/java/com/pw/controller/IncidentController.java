@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pw.model.entity.Category;
 import com.pw.model.entity.Incident;
+import com.pw.model.entity.Supplier;
 import com.pw.service.CategoryService;
 import com.pw.service.IncidentService;
+import com.pw.service.SupplierService;
 
 @Controller
 @RequestMapping("/incidents")
@@ -24,12 +26,12 @@ public class IncidentController {
 	private IncidentService incidentService;
 	
 	@Autowired
-	private CategoryService categoryService;
+	private SupplierService supplierService;
 	
 	@GetMapping
     public String showAllIncidents(Model model) {
         model.addAttribute("incidents", incidentService.getAll());
-        model.addAttribute("categories", categoryService.getAll());
+        model.addAttribute("suppliers", supplierService.getAll());
         return "incidents/list";
     }
 
@@ -37,8 +39,8 @@ public class IncidentController {
 	@GetMapping("/new")
     public String newIncidentForm(Model model) {
         model.addAttribute("incident", new Incident());
-        List<Category> categories = categoryService.getAll();
-        model.addAttribute("categories", categories);
+        List<Supplier> suppliers = supplierService.getAll();
+        model.addAttribute("suppliers", suppliers);
         return "incidents/new";
     }
 	
@@ -54,8 +56,8 @@ public class IncidentController {
 	@GetMapping("/edit/{id}")
     public String editIncidentForm(@PathVariable("id") long id, Model model) {
         Incident incident = incidentService.getOneById(id);
-        List<Category> categories = categoryService.getAll();
-        model.addAttribute("categories", categories);
+        List<Supplier> suppliers = supplierService.getAll();
+        model.addAttribute("suppliers", suppliers);
         model.addAttribute("incident", incident);
         return "incidents/edit";
     }

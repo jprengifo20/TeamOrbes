@@ -38,7 +38,7 @@ public class IncidentServiceImpl implements IncidentService {
 	public void update(Long id, Incident entity) {
 		// TODO Auto-generated method stub
 		Incident currentIncident= getOneById(id);
-		currentIncident.setCategories(entity.getCategories());
+		currentIncident.setSuppliers(entity.getSuppliers());
 		currentIncident.setDate(entity.getDate());
 		currentIncident.setGravity(entity.getGravity());
 		currentIncident.setObservations(entity.getObservations());
