@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/head"></th:block>
+<body>
+
+	<th:block th:include="fragments/navbar"></th:block>
+	<div class="container">
+
+		<div class="card" style="max-width: 100%;">
+			<div class="card-header">Registrar Proveedor</div>
+			<div class="card-body">
+
+				<form th:object="${supplier}" th:action="@{/suppliers/save}"
+					th:method="post">
+					<div class="form-group">
+						<input type="hidden" class="form-control" th:field="*{id}" />
+					</div>
+										
+					
+					<div class="form-group">
+						<label for="enterprise">Empresa</label> <input type="text"
+							class="form-control" id="enterprise" aria-describedby="enterprise"
+							th:field="*{enterprise}" placeholder="type here ..." />
+					</div>
+					
+					<div class="form-group">
+						<label for="ruc">RUC</label> <input type="text"
+							class="form-control" id="ruc" aria-describedby="ruc"
+							th:field="*{ruc}" placeholder="type here ..." />
+					</div>
+					
+					<div class="form-group">
+						<label for="product">Producto</label> <input type="text"
+							class="form-control" id="product" aria-describedby="product"
+							th:field="*{product}" placeholder="type here ..." />
+					</div>
+					
+					<div class="form-group">
+						<label for="phone">Telefono</label> <input type="text"
+							class="form-control" id="phone" aria-describedby="phone"
+							th:field="*{phone}" placeholder="type here ..." />
+					</div>
+					
+
+					<a th:href="@{/suppliers/}" class="btn btn-primary">Regresar</a>
+					<button type="submit" class="btn btn-success">Guardar</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<th:block th:include="fragments/scripts"></th:block>
+
+</body>
+</html>
