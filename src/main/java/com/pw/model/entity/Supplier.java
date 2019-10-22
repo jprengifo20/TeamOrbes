@@ -1,11 +1,14 @@
 package com.pw.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -33,6 +36,15 @@ public class Supplier {
 	@Type(type = "org.hibernate.type.TextType")
 	private String deleteDetails;
 	
+	@ManyToMany(mappedBy = "suppliers")
+	private List<Incident> incidents;
+	
+	public List<Incident> getIncidents() {
+		return incidents;
+	}
+	public void setIncidents(List<Incident> incidents) {
+		this.incidents = incidents;
+	}
 	public Long getId() {
 		return id;
 	}
