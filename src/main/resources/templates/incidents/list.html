@@ -28,8 +28,8 @@
 					<tbody>
 						<tr th:each="incident : ${incidents}">
 							<td th:text="${incident.id}">1</td>
-						    <td><th:block th:each="category : ${incident.categories}">
-									<span th:text="${category.name} + ' '">Item description
+						    <td><th:block th:each="supplier : ${incident.suppliers}">
+									<span th:text="${supplier.enterprise} + ' '">Item description
 										here...</span>
 								</th:block>
 							</td>

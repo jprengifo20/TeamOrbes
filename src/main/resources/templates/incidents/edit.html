@@ -17,10 +17,10 @@
 					</div>
 					
 					<div class="form-group">
-						<label for="category">Category</label> <select id="category"
-							class="form-control" th:field="*{categories}" multiple="multiple">
-							<option th:each="category : ${categories}"
-								th:text="${category.name}" th:value="${category.id}"></option>
+						<label for="supplier">Supplier</label> <select id="supplier"
+							class="form-control" th:field="*{suppliers}" multiple="multiple">
+							<option th:each="supplier : ${suppliers}"
+								th:text="${supplier.enterprise}" th:value="${supplier.id}"></option>
 						</select>
 					</div>
 					
