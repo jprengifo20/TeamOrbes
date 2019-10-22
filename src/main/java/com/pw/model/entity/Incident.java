@@ -72,7 +72,7 @@ public class Incident {
 	@NotEmpty
 	private String gravity;
 
-
+	@NotEmpty
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "incident_supplier", 
 				joinColumns = { @JoinColumn(name = "incident_id") }, 
