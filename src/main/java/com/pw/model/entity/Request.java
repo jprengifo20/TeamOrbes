@@ -22,6 +22,7 @@ private String description;
 private String state;
 private String date;
 
+private int number;
 
 private double price_unit;
 	@ManyToMany(mappedBy = "categories")
