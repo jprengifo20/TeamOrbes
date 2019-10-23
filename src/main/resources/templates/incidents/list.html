@@ -37,7 +37,7 @@
 							<td th:text="${incident.gravity}">HAMP</td>
 							<td th:text="${incident.observations}">HAMP</td>
 							
-							<td><a th:href="@{'/incidents/show/' + ${incident.id}}"
+							<td><a th:href="@{'/incidents/view/'+ ${incident.id}}"
 								class="btn btn-primary">Ver</a></td>
 							<td><a th:href="@{'/incidents/edit/'+ ${incident.id}}"
 								class="btn btn-success">Editar</a></td>

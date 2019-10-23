@@ -68,5 +68,23 @@ public class IncidentController {
         incidentService.update(id, incident);
         return "redirect:/incidents";    
     }
+	
+	@GetMapping("/view/{id}")
+    public String viewIncidentForm(@PathVariable("id") long id, Model model) {
+        Incident incident = incidentService.getOneById(id);
+        List<Supplier> suppliers = supplierService.getAll();
+        model.addAttribute("suppliers", suppliers);
+        model.addAttribute("incident", incident);
+        return "incidents/view";
+    }
+	
+	@GetMapping("/ver/{id}")
+    public String viewIncident(@PathVariable("id") long id, Model model) {
+
+		return "redirect:/incidents";
+
+    }
+
+
 
 }
