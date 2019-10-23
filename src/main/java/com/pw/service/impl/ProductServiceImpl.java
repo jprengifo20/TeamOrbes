@@ -37,6 +37,8 @@ public class ProductServiceImpl implements ProductService {
 	public void update(Long id, Product entity) {
 		Product currentProduct = getOneById(id);
 		currentProduct.setName(entity.getName());
+		currentProduct.setPrice(entity.getPrice());
+		currentProduct.setStock(entity.getStock());
 		productRepository.save(currentProduct);
 	}
 

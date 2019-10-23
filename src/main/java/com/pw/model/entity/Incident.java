@@ -81,7 +81,7 @@ public class Incident {
 	private List<Supplier> suppliers = new ArrayList<>();
 
 	@Column(name = "date")
-	@DateTimeFormat(pattern = "yyyy")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date date;
 
 	@Lob
