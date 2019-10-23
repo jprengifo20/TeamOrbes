@@ -21,7 +21,6 @@
 							<th>Producto</th>
 							<th>Responsable</th>
 							<th>Detalle</th>
-							<th>Ver</th>
 							<th>Editar</th>
 						</tr>
 					</thead>
@@ -38,8 +37,6 @@
 							<td th:text="${purchaseorder.responsible}">HAMP</td>
 							<td th:text="${purchaseorder.detail}">HAMP</td>
 							
-							<td><a th:href="@{'/purchaseorders/show/' + ${purchaseorder.id}}"
-								class="btn btn-primary">Ver</a></td>
 							<td><a th:href="@{'/purchaseorders/edit/'+ ${purchaseorder.id}}"
 								class="btn btn-success">Editar</a></td>
 						
