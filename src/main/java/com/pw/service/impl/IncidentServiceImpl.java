@@ -1,6 +1,7 @@
 package com.pw.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,12 @@ public class IncidentServiceImpl implements IncidentService {
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		incidentRepository.deleteById(id); 
+	}
+
+	@Override
+	public Optional<Incident> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 	
 	

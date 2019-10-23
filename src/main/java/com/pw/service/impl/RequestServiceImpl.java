@@ -1,6 +1,7 @@
 package com.pw.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -50,6 +51,12 @@ public class RequestServiceImpl implements RequestService {
 	@Override
 	public void delete(Long id) {
 		requestRepository.deleteById(id);
+	}
+
+	@Override
+	public Optional<Request> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

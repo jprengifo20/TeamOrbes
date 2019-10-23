@@ -1,6 +1,7 @@
 package com.pw.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,12 @@ public class ProductServiceImpl implements ProductService {
 	public void delete(Long id) {
 		productRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public Optional<Product> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
