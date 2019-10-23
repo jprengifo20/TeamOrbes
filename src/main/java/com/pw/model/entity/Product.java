@@ -26,9 +26,10 @@ public class Product {
 	@NotEmpty
 	private String name;
 
+	
 	private Long price ;
 
-	@NotEmpty 
+
 	private int stock;
 
 	public Long getId() {
