@@ -88,4 +88,7 @@ public class Incident {
 	@NotEmpty
 	@Type(type = "org.hibernate.type.TextType")
 	private String observations;
+	
+	
+	
 }
