@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/head"></th:block>
+<body>
+
+	<th:block th:include="fragments/navbar"></th:block>
+	<div class="container">
+
+		<div class="card" style="max-width: 100%;">
+			<div class="card-header">Mantenimiento Orden de Compra</div>
+			<div class="card-body">
+
+				<a th:href="@{/purchaseorders/new}" class="btn btn-primary">Nuevo</a>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th>Proveedor</th>
+							<th>Fecha</th>
+							<th>Producto</th>
+							<th>Responsable</th>
+							<th>Detalle</th>
+							<th>Ver</th>
+							<th>Editar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="purchaseorder : ${purchaseorders}">
+							<td th:text="${purchaseorder.id}">1</td>
+						    <td><th:block th:each="supplier : ${purchaseorder.suppliers}">
+									<span th:text="${supplier.enterprise} + ' '">Item description
+										here...</span>
+								</th:block>
+							</td>
+							<td th:text="${purchaseorder.date}">HAMP</td>
+							<td th:text="${purchaseorder.product}">HAMP</td>
+							<td th:text="${purchaseorder.responsible}">HAMP</td>
+							<td th:text="${purchaseorder.detail}">HAMP</td>
+							
+							<td><a th:href="@{'/purchaseorders/show/' + ${purchaseorder.id}}"
+								class="btn btn-primary">Ver</a></td>
+							<td><a th:href="@{'/purchaseorders/edit/'+ ${purchaseorder.id}}"
+								class="btn btn-success">Editar</a></td>
+						
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+	<th:block th:include="fragments/scripts"></th:block>
+
+</body>
+</html>

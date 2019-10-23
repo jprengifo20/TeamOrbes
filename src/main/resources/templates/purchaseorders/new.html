@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/head"></th:block>
+<body>
+
+	<th:block th:include="fragments/navbar"></th:block>
+	<div class="container">
+
+		<div class="card" style="max-width: 100%;">
+			<div class="card-header">Registrar Orden de Compra</div>
+			<div class="card-body">
+
+				<form th:object="${purchaseorder}" th:action="@{/purchaseorders/save}"
+					th:method="post">
+					<div class="form-group">
+						<input type="hidden" class="form-control" th:field="*{id}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="supplier">Proveedor</label> <select id="supplier"
+							class="form-control" th:field="*{suppliers}" multiple="multiple">
+							<option th:each="supplier : ${suppliers}"
+								th:text="${supplier.enterprise}" th:value="${supplier.id}"></option>
+						</select>
+					</div>
+					
+					
+					
+					<div class="form-group">
+						<label for="date">Fecha</label> <input type="text"
+							class="form-control" id="date" th:field="*{date}" />
+					</div>
+					
+					
+					<div class="form-group">
+						<label for="product">Producto</label> <input type="text"
+							class="form-control" id="product" aria-describedby="product"
+							th:field="*{product}" placeholder="type here ..." />
+					</div>
+					
+					<div class="form-group">
+						<label for="responsible">Responsable</label> <input type="text"
+							class="form-control" id="responsible" aria-describedby="responsible"
+							th:field="*{responsible}" placeholder="type here ..." />
+					</div>
+					
+
+					<div class="form-group">
+						<label for="detail">Detalle</label>
+						<textarea rows="4" type="textarea" class="form-control"
+							id="detail" th:field="*{detail}"
+							playeholder="type here ..." /></textarea>
+					</div>
+
+					<a th:href="@{/purchaseorders/}" class="btn btn-primary">Regresar</a>
+					<button type="submit" class="btn btn-success">Save</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<th:block th:include="fragments/scripts"></th:block>
+
+</body>
+</html>
