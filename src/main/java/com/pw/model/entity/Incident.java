@@ -23,11 +23,33 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "incidents")
 public class Incident {
-
+	
 	@Id
 	@Column(name = "incident_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+
+	@NotEmpty(message="Debe ingresar el campo de gravedad")
+	private String gravity;
+
+	@NotEmpty(message="Debe ingresar el campo del proveedor")
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "incident_supplier", 
+				joinColumns = { @JoinColumn(name = "incident_id") }, 
+				inverseJoinColumns = {@JoinColumn(name = "supplier_id") 
+			})
+	private List<Supplier> suppliers = new ArrayList<>();
+
+	@Column(name = "date")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	private Date date;
+
+	@Lob
+	@NotEmpty(message="Debe ingresar el campo de las observaciones")
+	@Type(type = "org.hibernate.type.TextType")
+	private String observations;
+	
 
 	public Long getId() {
 		return id;
@@ -69,26 +91,6 @@ public class Incident {
 		this.observations = observations;
 	}
 
-	@NotEmpty
-	private String gravity;
-
-	@NotEmpty
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "incident_supplier", 
-				joinColumns = { @JoinColumn(name = "incident_id") }, 
-				inverseJoinColumns = {@JoinColumn(name = "supplier_id") 
-			})
-	private List<Supplier> suppliers = new ArrayList<>();
-
-	@Column(name = "date")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
-	private Date date;
-
-	@Lob
-	@NotEmpty
-	@Type(type = "org.hibernate.type.TextType")
-	private String observations;
-	
 	
 	
 }
